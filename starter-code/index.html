@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="styles.css">
 
 
   <title>Frontend Mentor | FX Checker</title>
@@ -36,7 +36,7 @@
 <!-- Dynamic: number of available currencies, e.g. "55" -->
 <a href="currencies.html"> [55] Currencies</a>
 <a href="https://frankfurter.dev/"> EOD · ECB data</a>
-
+<a href="live markets"> Live markets</a>
 <!-- Live markets ticker — auto-scrolls across the page, pauses on hover -->
 
 Live markets
@@ -47,25 +47,32 @@ Live markets
 <!-- Converter -->
 
 <h2>Check the rate</h2>
-
-Send
+<section class="header">
+<div class="card">
+<div class="USD-card">
+<p>Send</p>
+<h1>1,000</h1>
 <!-- Dynamic: amount to convert (number input, defaults to 1,000) -->
 <!-- Dynamic: selected "send" currency — flag + code; opens the currency picker -->
 
 <!-- Swap the send and receive currencies (icon button) -->
-
+</div>
+<div class="EUR-card">
+  
 Receive
+<h1>1,000</h1>
 <!-- Dynamic: converted amount -->
 <!-- Dynamic: selected "receive" currency — flag + code; opens the currency picker -->
 
 <!-- Dynamic: exchange rate for the active pair, e.g. "1 USD = 0.8530 EUR" -->
 
+</div>
 <!-- Favorite toggle for the active pair — reads "Favorite" when unpinned, "Favorited" when pinned -->
-Favorite
-Favorited
+<button>Favorite</button>
+<button>Favorited</button>
 
 Log conversion
-
+</section>
 
 <!-- Currency picker — popover opened from either currency button -->
 
@@ -83,33 +90,50 @@ Other currencies
 
 
 <!-- Tabs — collapse into a dropdown on mobile -->
+<div class="tabs">
+<p>History</p>
+<p>Compare</p>
+<p>Favorites</p>
+<p>Log</p>
+</div>
 
-History
-Compare
-Favorites
 <!-- Dynamic: number of favorited pairs (badge) -->
 Log
 <!-- Dynamic: number of logged conversions (badge) -->
 
 
 <!-- Tab panel: History (default tab) -->
+<div class="trade">
+  open
+  <p>0.8516</p>
+</div>
 
-Open
 <!-- Dynamic: opening rate for the selected range -->
+ <div class="trade">
 Last
+<p>0.8530</p>
+</div>
 <!-- Dynamic: latest rate -->
+ <div class="trade">
 Change
+<p>+0.0014</p>
+</div>
 <!-- Dynamic: change over the range (signed; positive green, negative red) -->
+ <div class="trade">
 % change
+<p>+0.00</p>
+</div>
 <!-- Dynamic: percentage change over the range (▲/▼; positive green, negative red) -->
 
 <!-- Date range selector -->
+ <div class="date">
 1d
 1w
 1m
 3m
 1y
 5y
+</div>
 
 <!-- Dynamic: active pair, e.g. "USD/EUR" -->
 <!-- Dynamic: latest rate and timestamp, e.g. "0.8530 · May 14 16:00 CET" -->
@@ -156,7 +180,7 @@ Clear all
 <!-- Log empty state -->
 No conversions logged yet
 Every conversion is recorded here automatically when you tap Log conversion. Your log is private to this session and this browser.
-
+</div>
 
 </body>
 </html>
