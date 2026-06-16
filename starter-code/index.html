@@ -39,7 +39,7 @@
 <a href="live markets"> Live markets</a>
 <!-- Live markets ticker — auto-scrolls across the page, pauses on hover -->
 
-Live markets
+Live markets    
 
 <!-- Dynamic: scrolling list of currency pairs, each with its rate and 24h change (▲ up / ▼ down) -->
 
@@ -135,9 +135,14 @@ Change
 5y
 </div>
 
-<!-- Dynamic: active pair, e.g. "USD/EUR" -->
-<!-- Dynamic: latest rate and timestamp, e.g. "0.8530 · May 14 16:00 CET" -->
-<!-- Dynamic: line + area chart of the pair's rate history, with Y-axis (high/mid/low) and X-axis date labels -->
+<div class="chart-header">
+  <h3 id="active-pair-display">USD/EUR</h3>
+  <p id="latest-rate-display">0.8530 · May 14 16:00 CET</p>
+</div>
+
+<div class="chart-container">
+  <canvas id="rateChart"></canvas>
+</div>
 
 <!-- History empty / error state -->
 No chart data available
