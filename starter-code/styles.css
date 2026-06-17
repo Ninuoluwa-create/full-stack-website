@@ -7,19 +7,20 @@ body {
   padding: 40px;
 }
 .header{
-    background-color: grey;
+    background-color: #16191E;
     padding: 20px;
     text-align: left;
     margin: 0;
     gap: 20px;
     border-radius: 10px;
+
 }
 .card {
     display: flex;
     gap: 20px;
 }
 .USD-card, .EUR-card{
-    background-color: grey;
+    background-color: #1C2127;
     padding: 20px;
     text-align: left;
     margin: 0;
@@ -35,14 +36,48 @@ body {
     justify-content: center;
 }
 .date{
-    display: flex;
+    display: inline-flex;
     gap:20px;
-    justify-content: right;
-    border-radius: 10px;
+    justify-content: flex-end;
+    border-radius: 5px;
     background-color:#16191E ;
-    padding: 20px
+    padding: 20px;
+    margin-left: 20px;
+    vertical-align: middle;
+}
+.trade {
+    background-color: #16191E;
+    display: inline-block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 5px;
+    border-radius: 5px;
+    width: 120px;
+    height: 8dvh;
+    margin-right: 20px;
+    vertical-align: top;
+    border-right: 1px solid #2a2f37;
 }
 
+.trade:last-of-type {
+    border-right: none;
+    margin-right: 0;
+}
+
+.trade-cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.align{
+    display: inline-flex;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    vertical-align: middle;
+}
 
 
 
