@@ -15,6 +15,9 @@ body {
     border-radius: 10px;
 
 }
+p{
+    color: green;
+}
 .card {
     display: flex;
     gap: 20px;
