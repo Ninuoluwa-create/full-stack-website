@@ -3,112 +3,157 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="styles.css">
-
-
   <title>Frontend Mentor | FX Checker</title>
 </head>
 <body>
-  <div class = "app">
-    <div class="topbar">
-      <div class="brand"> <span class="mark"></span> FX Checker
-      </div>
-      <div class = "meta"> <b>55</b>CURRENCIES & nbsp; &nbsp EOD &;</div>
-    </div>
+  <main class="shell" aria-label="FX Checker preview">
+    <div class="app">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="FX Checker home">
+          <img src="./logo.svg" alt="FX Checker">
+        </a>
+        <p class="meta">55 currencies <span aria-hidden="true">•</span> EOD <span aria-hidden="true">•</span> ECB data</p>
+      </header>
 
-    <div class="ticker" id="ticker"></div>
-    <div class="main">
-      <div class="section-title">CHECK THE RATE</div>
-      <div class="convert-card">
-        <div class="field">
-          <label>SEND</label>
-          <div class="field-row">
-            <input id="sendinput" type="text" inputmode="decimal" value="1000">
-            <div class="currency-pill" id="sendCcy"><span class="flag">🇺🇸</span> USD <span></span>
+      <section class="ticker" aria-label="Live market rates">
+        <div class="ticker-label"><span aria-hidden="true"></span> Live markets</div>
+        <ul class="ticker-list">
+          <li><span>EUR/USD</span> <strong>1.1544</strong> <em class="loss">▼ -0.14%</em></li>
+          <li><span>USD/JPY</span> <strong>157.91</strong> <em>▲ +0.04%</em></li>
+          <li><span>GBP/USD</span> <strong>1.3575</strong> <em class="loss">▼ -0.22%</em></li>
+          <li><span>USD/CHF</span> <strong>0.9098</strong> <em>▲ +0.13%</em></li>
+          <li><span>EUR/GBP</span> <strong>0.8633</strong> <em>▲ +0.11%</em></li>
+          <li><span>AUD/USD</span> <strong>0.7208</strong> <em>▲ +0.08%</em></li>
+          <li><span>USD/CAD</span> <strong>1.3815</strong> <em>▲ +0.04%</em></li>
+        </ul>
+      </section>
+
+      <section class="workspace" aria-labelledby="rate-heading">
+        <h1 id="rate-heading">Check the rate</h1>
+
+        <section class="converter" aria-label="Currency converter">
+          <div class="converter-grid">
+            <div class="amount-field">
+              <label for="send-amount">Send</label>
+              <span class="amount-row">
+                <input id="send-amount" inputmode="decimal" value="1,000" aria-label="Amount to send">
+                <button class="currency-pill" type="button">
+                  <img src="./assets/images/flags/us.webp" alt="">
+                  USD
+                  <img src="./assets/images/icon-chevron-down.svg" alt="" aria-hidden="true">
+                </button>
+              </span>
+            </div>
+
+            <button class="swap-btn" type="button" aria-label="Swap currencies">
+              <img src="./assets/images/icon-exchange.svg" alt="" aria-hidden="true">
+            </button>
+
+            <div class="amount-field">
+              <label for="receive-amount">Receive</label>
+              <span class="amount-row">
+                <input id="receive-amount" class="receive-value" inputmode="decimal" value="853.02" aria-label="Amount to receive">
+                <button class="currency-pill" type="button">
+                  <img src="./assets/images/flags/eu.webp" alt="">
+                  EUR
+                  <img src="./assets/images/icon-chevron-down.svg" alt="" aria-hidden="true">
+                </button>
+              </span>
             </div>
           </div>
-        </div>
-      </div>
+
+          <div class="rate-row">
+            <p>1 USD = 0.8530 EUR</p>
+            <div class="rate-actions">
+              <button class="action-btn action-btn--active" type="button">
+                <img src="./assets/images/icon-star.svg" alt="" aria-hidden="true">
+                Favorited
+              </button>
+              <button class="action-btn action-btn--outline" type="button">Log conversion</button>
+            </div>
+          </div>
+        </section>
+
+        <nav class="tabs" aria-label="FX Checker sections">
+          <a class="tab tab--active" href="#history">History</a>
+          <a class="tab" href="#compare">Compare</a>
+          <a class="tab tab--count" href="#favorites">Favorites <span>10</span></a>
+          <a class="tab tab--count" href="#log">Log <span>8</span></a>
+        </nav>
+
+        <section class="history" id="history" aria-label="Rate history">
+          <div class="history-top">
+            <div class="stats">
+              <article class="stat-card">
+                <span>Open</span>
+                <strong>0.8516</strong>
+              </article>
+              <article class="stat-card">
+                <span>Last</span>
+                <strong>0.8530</strong>
+              </article>
+              <article class="stat-card">
+                <span>Change</span>
+                <strong class="positive">+0.0014</strong>
+              </article>
+              <article class="stat-card">
+                <span>% Change</span>
+                <strong class="positive">▲ +0.16%</strong>
+              </article>
+            </div>
+
+            <div class="range-tabs" aria-label="Chart range">
+              <button type="button">1D</button>
+              <button type="button">1W</button>
+              <button class="is-active" type="button">1M</button>
+              <button type="button">3M</button>
+              <button type="button">1Y</button>
+              <button type="button">5Y</button>
+            </div>
+          </div>
+
+          <article class="chart-card">
+            <div class="chart-header">
+              <h2>USD/EUR</h2>
+              <p>0.8530 <span>•</span> May 14 16:00 CET</p>
+            </div>
+
+            <div class="chart-wrap" aria-label="USD to EUR exchange rate line chart">
+              <svg viewBox="0 0 860 270" role="img" aria-labelledby="chart-title chart-desc" preserveAspectRatio="none">
+                <title id="chart-title">USD/EUR one month history</title>
+                <desc id="chart-desc">A rising line chart ending near 0.8530 after a late-month dip.</desc>
+                <defs>
+                  <linearGradient id="area-fill" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0" stop-color="#cef739" stop-opacity="0.85"/>
+                    <stop offset="0.52" stop-color="#9fbf2f" stop-opacity="0.28"/>
+                    <stop offset="1" stop-color="#1b1d22" stop-opacity="0.08"/>
+                  </linearGradient>
+                </defs>
+                <g class="grid">
+                  <line x1="0" x2="860" y1="42" y2="42"/>
+                  <line x1="0" x2="860" y1="136" y2="136"/>
+                  <line x1="0" x2="860" y1="231" y2="231"/>
+                </g>
+                <g class="axis-labels">
+                  <text x="0" y="48">0.8612</text>
+                  <text x="0" y="142">0.8516</text>
+                  <text x="0" y="237">0.8421</text>
+                  <text x="48" y="262">Apr 14</text>
+                  <text x="254" y="262">Apr 21</text>
+                  <text x="464" y="262">Apr 28</text>
+                  <text x="668" y="262">May 06</text>
+                  <text x="828" y="262">May 14</text>
+                </g>
+                <path class="chart-area" d="M48 128 L62 97 L75 86 L88 117 L102 114 L116 124 L130 125 L144 160 L158 146 L171 151 L185 143 L199 129 L212 95 L226 126 L240 150 L254 165 L268 171 L282 158 L296 185 L310 194 L324 172 L338 223 L352 184 L366 194 L380 179 L394 231 L408 139 L422 168 L436 214 L450 185 L464 225 L478 178 L492 222 L506 197 L520 206 L534 168 L548 183 L562 158 L576 112 L590 109 L604 100 L618 90 L632 49 L646 124 L660 157 L674 177 L688 140 L702 151 L716 98 L730 66 L744 93 L758 37 L772 55 L786 75 L800 69 L814 78 L828 70 L842 126 L856 111 L856 270 L48 270 Z"/>
+                <path class="chart-line" d="M48 128 L62 97 L75 86 L88 117 L102 114 L116 124 L130 125 L144 160 L158 146 L171 151 L185 143 L199 129 L212 95 L226 126 L240 150 L254 165 L268 171 L282 158 L296 185 L310 194 L324 172 L338 223 L352 184 L366 194 L380 179 L394 231 L408 139 L422 168 L436 214 L450 185 L464 225 L478 178 L492 222 L506 197 L520 206 L534 168 L548 183 L562 158 L576 112 L590 109 L604 100 L618 90 L632 49 L646 124 L660 157 L674 177 L688 140 L702 151 L716 98 L730 66 L744 93 L758 37 L772 55 L786 75 L800 69 L814 78 L828 70 L842 126 L856 111"/>
+              </svg>
+            </div>
+          </article>
+        </section>
+      </section>
     </div>
-     <div class="swap-btn" id="swapBtn" title="Swap currencies"></div>
-    <div class="field">
-      <label>RECEIVE</label>
-      <div class="field-row">
-        <input id="receiveinput" type="text" inputmode="decimal" value="1000">
-        <div class="currency-pill" id="receiveCcy"><span class="flag">🇪🇺</span> EUR <span></span>
-        </div>
-      </div>
-    </div>
-
-<div class="rate-row">
-  <div id="rateText"> 1 USD =  0.85 EUR</div>
-  <div class="rate-actions"> <div class="btn btn-fav" id="fav-btn"> FAVORITED</div> 
-  <div class="btn btn-long" id="long-btn"> LOG CONVERSION</div>
-  </div> 
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  </div>
-<!--
-  This file holds the static written content from the design so you don't have to
-  retype it. It is intentionally unstructured — building the HTML is your job.
-
-  Notes labelled "Dynamic:" mark content pulled in with JavaScript — live exchange
-  rates, or the pairs and conversions you save in the browser. Text in [square
-  brackets] is a live value that sits inside otherwise-static copy.
-
-  Labels are written in normal case even though the design shows many of them in
-  uppercase. Apply that uppercase look with CSS (text-transform: uppercase) rather
-  than capital letters in the markup — all-caps text can be read out awkwardly by
-  some screen readers. Acronyms and codes (FX, EOD, ECB, USD, EUR…) stay as-is.
--->
-
-
+  </main>
 </body>
 </html>
